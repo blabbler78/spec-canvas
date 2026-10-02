@@ -27,7 +27,8 @@ Node.js 20+ is the only runtime needed by the bundled scripts. No external modul
 agent credentials or model APIs are used. pnpm is optional for the one-command GitHub
 installer; direct `node` execution works from a downloaded repository without pnpm.
 The GitHub-package route can require Git and internet access to fetch the repository.
-It is not an npm-registry publication.
+It is not an npm-registry publication. Use the versioned release ref shown in the
+README; pnpm can reuse cached commits for moving Git refs such as `main`.
 
 The interactive installer presents a numbered choice: both agents, Claude Code
 only, or Codex only. Pressing Enter selects both. In a noninteractive shell use

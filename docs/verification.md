@@ -47,7 +47,7 @@ templates; no upstream visual-explainer code or third-party image was copied.
 - Independent scoped re-review: approve for code413f973,23 tests and66 self-call
   geometry cases. Subsequent template/layout edits were browser-checked locally.
 
-## Recommended release 0.1.1
+## Previous release 0.1.1
 
 Release code: `9cdd3e4eb4550be3e0665f9f4a84260796ef8e5f`.
 [Release](https://github.com/blabbler78/spec-canvas/releases/tag/v0.1.1),
@@ -64,6 +64,23 @@ Release code: `9cdd3e4eb4550be3e0665f9f4a84260796ef8e5f`.
  rich templates, references, scripts, document template, license and attribution
  are included. Release also includes a full CLI package and checksums.
 
-0.1.1 fixes a path-alias issue found during actual release verification. Use0.1.1
-for new installations;0.1.0 is retained as release history. The reviewed release is
-immutable; later main-branch documentation updates do not change its code.
+0.1.1 fixed a path-alias issue found during actual release verification. It and
+0.1.0 are retained as immutable release history; later main-branch documentation
+updates do not change their code.
+
+## Release 0.1.2
+
+0.1.2 adds the complete overview/cards document variant in white and dark, while
+retaining editorial, blueprint and real SVG diagram views. It also replaces the
+free-form agent prompt with a numbered installer menu and supports an in-project
+shared skill symlink such as `.agents/skills -> ../.claude/skills`. A symlink that
+leaves the project remains rejected.
+
+The release candidate passes 27 tests, deterministic example generation, desktop
+and mobile browser checks for the new overview, and direct installation into a
+temporary project with the same shared-symlink layout. Use the immutable tag to
+avoid pnpm caching an older commit for a moving Git ref:
+
+```sh
+pnpm dlx github:blabbler78/spec-canvas#v0.1.2 init
+```

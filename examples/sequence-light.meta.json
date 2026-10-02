@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "renderer": "spec-canvas 0.1.1",
+  "renderer": "spec-canvas 0.1.2",
   "input": "examples/sequence-light.json",
   "inputSha256": "96ce383923d2faf702afaa929cb80a03a7d7fa098a63f3572ba674eb7de4b3c9",
   "theme": "light",

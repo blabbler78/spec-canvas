@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "renderer": "spec-canvas 0.1.1",
+  "renderer": "spec-canvas 0.1.2",
   "input": "examples/state-dark.json",
   "inputSha256": "6668df52dc13df4a4721a6660fc9a29d0713dae146facd34ff0eaa879ec235f8",
   "theme": "dark",

@@ -45,13 +45,14 @@ this package does not provide a model, API subscription, or autonomous AI runtim
 With Node.js 20+ and pnpm:
 
 ```sh
-pnpm dlx github:blabbler78/spec-canvas init
+pnpm dlx github:blabbler78/spec-canvas#v0.1.2 init
 ```
 
-This installs from the repository's current default branch. For a reproducible
-historical install, append a release tag such as `#v0.1.1`. Alternatively, clone
-the repository and run `node bin/spec-canvas.mjs init --project /path/to/project`.
-No `pnpm install` is needed: the CLI has no external dependencies.
+The release tag is intentional: pnpm can cache moving Git references such as
+`main`. A versioned tag is reproducible and fetches the intended installer.
+Alternatively, clone the repository and run
+`node bin/spec-canvas.mjs init --project /path/to/project`. No `pnpm install` is
+needed: the CLI has no external dependencies.
 
 The installer asks only:
 
