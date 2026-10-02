@@ -47,8 +47,18 @@ to manual authoring; inspect the result and keep evidence labels explicit.
 
 ## Rich HTML templates
 
-`assets/editorial-page.html` and `assets/blueprint-page.html` supply complete
-agent-authored page shells. Copy one to your own project, customize it, and ask the
-agent to use it for presentation. The default is editorial white; blueprint dark
-is explicit. These templates are used by the agent, not the deterministic CLI.
-Synthetic diagrams are placeholders that must be replaced with project evidence.
+`assets/overview-page.html`, `assets/editorial-page.html` and
+`assets/blueprint-page.html` supply complete agent-authored page shells. Copy one to
+your own project, customize it, and ask the agent to use it for presentation.
+
+- Choose **overview/cards** for a compact system brief, review handoff or
+  dashboard-like scan of responsibilities, states, risks and evidence. It defaults
+  to white; set `<html data-theme="dark">` for the explicit dark treatment.
+- Choose **editorial** for a long-form white document with contents navigation and
+  a reading-first hierarchy.
+- Choose **blueprint** for a dense, explicitly dark technical document.
+
+These templates are used by the agent, not the deterministic CLI. Cards summarize
+facts; use a real flow, sequence, state, architecture or dependency diagram when
+direction and relationships matter. Synthetic diagrams and text are placeholders
+that must be replaced with project evidence.

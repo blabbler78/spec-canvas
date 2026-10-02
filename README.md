@@ -114,9 +114,18 @@ repository to open the HTML examples in your browser.
 ## Rich presentation mode
 
 Beyond the simple CLI diagrams, your agent can create a complete visual explanation
-using the bundled editorial or blueprint page templates. This manual path needs
-no Node.js. Typography, contents navigation, evidence panels, diagrams and prose
-form one document; custom project templates can replace the defaults.
+using the bundled overview/cards, editorial or blueprint page templates. This
+manual path needs no Node.js. Typography, evidence panels, diagrams and prose form
+one document; custom project templates can replace the defaults.
+
+Use overview/cards for a compact system brief or review handoff, editorial for
+long-form reading, and blueprint for an explicitly dark technical treatment.
+
+| Overview cards — white | Overview cards — dark |
+| --- | --- |
+| ![Job Service overview document on white](examples/screenshots/overview-document-light.png) | ![Job Service overview document on dark](examples/screenshots/overview-document-dark.png) |
+
+[Overview HTML — white](examples/overview-document-light.html) · [Overview HTML — dark](examples/overview-document-dark.html)
 
 | Editorial — white | Blueprint — dark |
 | --- | --- |

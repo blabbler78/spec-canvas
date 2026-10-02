@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System overview template</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f4f7fa;
+  --sheet: #ffffff;
+  --panel: #eef3f7;
+  --panel-strong: #e3ebf1;
+  --ink: #14283b;
+  --muted: #586b7b;
+  --line: #b9c8d3;
+  --accent: #176b87;
+  --signal: #c67623;
+  --good: #39745d;
+  --bad: #a34b4b;
+  --shadow: 0 18px 55px rgba(25, 54, 76, .11);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #101820;
+  --sheet: #17232d;
+  --panel: #202f3a;
+  --panel-strong: #293b48;
+  --ink: #edf5f8;
+  --muted: #a7bac6;
+  --line: #405664;
+  --accent: #68c1d6;
+  --signal: #e5a75a;
+  --good: #79b89d;
+  --bad: #e18b89;
+  --shadow: 0 22px 65px rgba(0, 0, 0, .3);
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0;
+  min-width: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--line) 22%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(color-mix(in srgb, var(--line) 22%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0 88px; }
+header { max-width: 880px; margin: 0 0 36px; }
+h1, h2, h3, p { overflow-wrap: anywhere; }
+h1 { max-width: 13ch; margin: 0; font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: .94; letter-spacing: -.065em; text-wrap: balance; }
+h2 { margin: 0; font-size: clamp(1.45rem, 2.8vw, 2.15rem); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+h3 { margin: 0; font-size: 1rem; line-height: 1.25; letter-spacing: -.01em; }
+p { margin: 0; }
+.doc-mark { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px; color: var(--accent); font-weight: 750; }
+.doc-mark::before { width: 28px; height: 4px; background: var(--signal); content: ""; }
+.lede { max-width: 68ch; margin-top: 20px; color: var(--muted); font-size: 1.08rem; }
+.scope { margin-top: 18px; padding-left: 16px; border-left: 4px solid var(--signal); color: var(--muted); }
+.sections { display: grid; gap: 20px; }
+.section {
+  min-width: 0;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--accent);
+  border-radius: 4px 4px 22px 4px;
+  background: color-mix(in srgb, var(--sheet) 96%, transparent);
+  box-shadow: var(--shadow);
+}
+.section[data-tone="signal"] { border-top-color: var(--signal); }
+.section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.section-head p { max-width: 66ch; margin-top: 7px; color: var(--muted); }
+.section-number { flex: none; color: var(--accent); font: 800 .75rem/1 ui-monospace, "SFMono-Regular", Consolas, monospace; letter-spacing: .1em; }
+.section[data-tone="signal"] .section-number { color: var(--signal); }
+.cards { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
+.card {
+  grid-column: span 4;
+  min-width: 0;
+  padding: 17px 18px 18px;
+  border: 1px solid var(--line);
+  border-radius: 3px 3px 14px 3px;
+  background: var(--panel);
+}
+.card.wide { grid-column: span 8; }
+.card.half { grid-column: span 6; }
+.card.full { grid-column: 1 / -1; }
+.card[data-tone="accent"] { border-left: 5px solid var(--accent); }
+.card[data-tone="signal"] { border-left: 5px solid var(--signal); }
+.card[data-tone="good"] { border-left: 5px solid var(--good); }
+.card[data-tone="bad"] { border-left: 5px solid var(--bad); }
+.card p { margin-top: 7px; color: var(--muted); }
+.label { display: block; margin-bottom: 8px; color: var(--accent); font: 750 .75rem/1.3 ui-monospace, "SFMono-Regular", Consolas, monospace; }
+.state-rack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+.state { padding: 12px; border-top: 3px solid var(--line); background: var(--sheet); }
+.state strong { display: block; font-size: .88rem; }
+.state span { display: block; margin-top: 4px; color: var(--muted); font-size: .78rem; }
+.state[data-tone="accent"] { border-color: var(--accent); }
+.state[data-tone="good"] { border-color: var(--good); }
+.state[data-tone="bad"] { border-color: var(--bad); }
+.band { display: grid; grid-template-columns: 1fr 2fr; gap: 18px; margin-top: 14px; padding: 18px; border: 1px solid var(--line); background: var(--panel-strong); }
+.band strong { color: var(--ink); }
+.band p { color: var(--muted); }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.fact { padding: 14px; border-top: 2px solid var(--ink); background: var(--sheet); }
+.fact b { display: block; font-size: 1.08rem; }
+.fact span { display: block; margin-top: 4px; color: var(--muted); font-size: .8rem; }
+.evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.evidence article { min-width: 0; padding: 14px 16px; border: 1px solid var(--line); background: var(--sheet); }
+.evidence code { display: block; margin-top: 8px; color: var(--muted); font: .75rem/1.45 ui-monospace, "SFMono-Regular", Consolas, monospace; white-space: normal; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+@media (max-width: 820px) {
+  main { width: min(100% - 24px, 1180px); padding-top: 38px; }
+  .card, .card.wide { grid-column: span 6; }
+  .card.full { grid-column: 1 / -1; }
+  .state-rack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  main { width: min(100% - 16px, 1180px); padding-top: 28px; }
+  h1 { font-size: clamp(2.6rem, 16vw, 4rem); }
+  .section { padding: 19px 16px 23px; border-radius: 3px 3px 16px 3px; }
+  .section-head { flex-direction: column-reverse; gap: 10px; }
+  .card, .card.wide, .card.half { grid-column: 1 / -1; }
+  .state-rack, .facts, .evidence, .band { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="doc-mark">Spec Canvas overview</div>
+  <h1>System overview</h1>
+  <p class="lede">Replace this introduction with the reader's task, the system boundary and the decision this document supports.</p>
+  <p class="scope"><strong>Evidence boundary:</strong> identify confirmed behavior, proposed behavior, observed results and unknowns.</p>
+</header>
+<div class="sections">
+  <section class="section">
+    <div class="section-head"><div><h2>Purpose and operating model</h2><p>Use unequal cards to establish hierarchy. Keep each card focused on one fact.</p></div><span class="section-number">01</span></div>
+    <div class="cards">
+      <article class="card wide" data-tone="accent"><span class="label">PRIMARY RESPONSIBILITY</span><h3>What the system does</h3><p>Describe the user-visible outcome and its durable boundary.</p></article>
+      <article class="card" data-tone="signal"><span class="label">NOT INCLUDED</span><h3>Scope boundary</h3><p>Name adjacent behavior that this document does not claim.</p></article>
+      <article class="card full"><h3>Lifecycle summary</h3><div class="state-rack"><div class="state" data-tone="accent"><strong>Accepted</strong><span>Durably recorded</span></div><div class="state"><strong>Processing</strong><span>Owned by a worker</span></div><div class="state" data-tone="good"><strong>Completed</strong><span>Result persisted</span></div><div class="state" data-tone="bad"><strong>Failed</strong><span>Recovery decision required</span></div></div></article>
+    </div>
+  </section>
+  <section class="section" data-tone="signal">
+    <div class="section-head"><div><h2>Contracts and evidence</h2><p>Summarize interfaces here; link a real diagram when relationships or timing matter.</p></div><span class="section-number">02</span></div>
+    <div class="cards">
+      <article class="card half"><h3>Inputs</h3><p>List validated requests, identities and prerequisites.</p></article>
+      <article class="card half"><h3>Outputs</h3><p>List durable records, events and client-visible responses.</p></article>
+    </div>
+    <div class="band"><strong>Use a diagram for relationships</strong><p>Cards are an overview, not a substitute for directional flow, sequence or state semantics.</p></div>
+    <div class="evidence"><article><h3>Source group</h3><code>relative/path/to/source.ext:line</code></article><article><h3>Verification</h3><code>Record only checks that were actually performed.</code></article></div>
+  </section>
+</div>
+</main>
+</body>
+</html>

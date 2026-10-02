@@ -40,7 +40,9 @@ prerequisites. A table or narrative is preferable when a graph adds no informati
 
 For a rich visual explanation rather than a simple diagram, read
 [presentation.md](references/presentation.md) and choose a complete page template.
-Full presentation is agent-authored, does not require Node.js, and supports richer
+Use the overview/cards template for a compact system brief, editorial for a long
+reading document, or blueprint for an explicitly dark technical document. Full
+presentation is agent-authored, does not require Node.js, and supports richer
 layouts than the CLI.
 
 Deliver Markdown plus self-contained HTML with a real inline SVG diagram: arrows,
