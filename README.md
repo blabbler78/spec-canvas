@@ -45,7 +45,7 @@ this package does not provide a model, API subscription, or autonomous AI runtim
 With Node.js 20+ and pnpm:
 
 ```sh
-pnpm dlx github:blabbler78/spec-canvas#v0.1.0 init
+pnpm dlx github:blabbler78/spec-canvas#v0.1.1 init
 ```
 
 Or clone the repository and run `node bin/spec-canvas.mjs init --project /path/to/project`.

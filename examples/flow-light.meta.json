@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "renderer": "spec-canvas 0.1.0",
+  "renderer": "spec-canvas 0.1.1",
   "input": "examples/flow-light.json",
   "inputSha256": "67cfac13db5a83cc22a541650fd96ce5cdb17415b92fed2c0fde3eb2c30c5b2e",
   "theme": "light",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "renderer": "spec-canvas 0.1.0",
+  "renderer": "spec-canvas 0.1.1",
   "input": "examples/state-light.json",
   "inputSha256": "07b260f73a71a3450f812be0ffbca66c89656aedb9ebb0851ce8a61297230ff8",
   "theme": "light",
