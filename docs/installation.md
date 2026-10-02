@@ -29,9 +29,16 @@ installer; direct `node` execution works from a downloaded repository without pn
 The GitHub-package route can require Git and internet access to fetch the repository.
 It is not an npm-registry publication.
 
-The interactive installer asks for agent and output directory. In a noninteractive
-shell use `--agent` and `--yes`; omitted agent defaults to both. Installation is
-project-local and avoids modifying the user's global agent directories.
+The interactive installer presents a numbered choice: both agents, Claude Code
+only, or Codex only. Pressing Enter selects both. In a noninteractive shell use
+`--agent claude|codex|both` and `--yes`; omitted agent defaults to both.
+Installation is project-local and avoids modifying the user's global agent
+directories.
+
+Some repositories make `.agents/skills` a symlink to `.claude/skills` so both
+agents share one skill installation. Spec Canvas accepts that layout when the
+symlink resolves inside the project, deduplicates the destination and writes one
+copy. A symlink that leaves the project remains rejected.
 
 An existing installation is not overwritten, including local edits. To update,
 compare your installed skill to the new release, back up local edits, and replace

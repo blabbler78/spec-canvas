@@ -6,22 +6,45 @@ import { createInterface } from 'node:readline/promises';
 import { render, hash } from './render.mjs';
 const skill=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 async function exists(p){try{await lstat(p);return true;}catch(e){if(e.code==='ENOENT')return false;throw e;}}
+function assertInside(root,target){const rel=relative(root,target);if(!rel||rel==='..'||rel.startsWith('..'+(process.platform==='win32'?'\\':'/'))||isAbsolute(rel))throw new Error('path must stay inside project');}
 export async function safePath(root, name){
   if(typeof name!=='string'||!name.trim()||isAbsolute(name))throw new Error('use a relative project path');
-  root=await realpath(root);const target=resolve(root,name),rel=relative(root,target);
-  if(!rel||rel==='..'||rel.startsWith('..'+(process.platform==='win32'?'\\':'/'))||isAbsolute(rel))throw new Error('path must stay inside project');
+  root=await realpath(root);const target=resolve(root,name),rel=relative(root,target);assertInside(root,target);
   let part=root;for(const component of rel.split(/[\\/]/)){part=join(part,component);if(await exists(part)){const stat=await lstat(part);if(stat.isSymbolicLink())throw new Error('symlink paths are not supported');}}
   return target;
+}
+async function safeInstallPath(root,name){
+  if(typeof name!=='string'||!name.trim()||isAbsolute(name))throw new Error('use a relative project path');
+  root=await realpath(root);const target=resolve(root,name);assertInside(root,target);
+  const parts=relative(root,target).split(/[\\/]/);let part=root;
+  for(let i=0;i<parts.length;i++){
+    const next=join(part,parts[i]);
+    if(!await exists(next)){part=join(part,...parts.slice(i));break;}
+    const stat=await lstat(next);
+    if(stat.isSymbolicLink()){part=await realpath(next);assertInside(root,part);}
+    else{if(i<parts.length-1&&!stat.isDirectory())throw new Error('installation path crosses a non-directory');part=next;}
+  }
+  assertInside(root,part);return part;
+}
+export function parseAgentChoice(value){
+  const choice=String(value??'').trim().toLowerCase();
+  const agents={"":'both','1':'both','both':'both','2':'claude','claude':'claude','3':'codex','codex':'codex'};
+  if(!(choice in agents))throw new Error('choose 1, 2, or 3 (both, claude, or codex)');
+  return agents[choice];
+}
+async function askAgent(rl){
+  const prompt='\nWhere should Spec Canvas be installed?\n  1. Both Claude Code and Codex (recommended)\n  2. Claude Code only\n  3. Codex only\nChoose 1, 2, or 3 [1]: ';
+  for(;;){try{return parseAgentChoice(await rl.question(prompt));}catch(error){console.error(error.message);}}
 }
 export function parse(argv){const [command='help',...rest]=argv;const opts={};for(let i=0;i<rest.length;i++){const arg=rest[i];if(!arg.startsWith('--'))throw new Error(`unexpected argument ${arg}`);const key=arg.slice(2);if(['yes','force'].includes(key)){opts[key]=true;}else{if(!rest[i+1]||rest[i+1].startsWith('--'))throw new Error(`missing value for ${arg}`);opts[key]=rest[++i];}}return{command,opts};}
 async function writeNew(files,force){for(const [f]of files){if(await exists(f)&&!force)throw new Error(`file exists: ${f}; use --force only for generated files`);}for(const[f,data]of files){await mkdir(dirname(f),{recursive:true});await writeFile(f,data);}}
 export async function init(root, opts={}){
   let agent=opts.agent,out=opts.out??'.ai/specs';
-  if(!opts.yes&&process.stdin.isTTY){const rl=createInterface({input:process.stdin,output:process.stdout});try{agent=(await rl.question('Install for Claude, Codex, or both? [both] ')).trim()||'both';out=(await rl.question(`Documentation directory? [${out}] `)).trim()||out;}finally{rl.close();}}
+  if(!opts.yes&&process.stdin.isTTY&&(!agent||opts.out===undefined)){const rl=createInterface({input:process.stdin,output:process.stdout});try{if(!agent)agent=await askAgent(rl);if(opts.out===undefined)out=(await rl.question(`Documentation directory? [${out}] `)).trim()||out;}finally{rl.close();}}
   agent??='both';if(!['claude','codex','both'].includes(agent))throw new Error('agent must be claude, codex or both');
   const output=await safePath(root,out);const targets=agent==='both'?['.claude/skills/spec-canvas','.agents/skills/spec-canvas']:agent==='claude'?['.claude/skills/spec-canvas']:['.agents/skills/spec-canvas'];
   const config=await safePath(root,'.spec-canvas.json'),template=await safePath(root,'.spec-canvas/templates/spec.md');
-  const folders=await Promise.all(targets.map(t=>safePath(root,t)));
+  const folders=[...new Set(await Promise.all(targets.map(t=>safeInstallPath(root,t))))];
   for(const p of [config,template,...folders])if(await exists(p))throw new Error(`installation target already exists: ${p}; no files changed`);
   await mkdir(output,{recursive:true});for(const f of folders){await mkdir(dirname(f),{recursive:true});await cp(skill,f,{recursive:true});}
   await writeNew([[template,await readFile(join(skill,'assets/spec.md'),'utf8')],[config,JSON.stringify({version:1,outputDirectory:out,documentTemplate:'.spec-canvas/templates/spec.md',theme:'light',language:'en'},null,2)+'\n']],false);

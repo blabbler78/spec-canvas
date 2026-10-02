@@ -45,20 +45,28 @@ this package does not provide a model, API subscription, or autonomous AI runtim
 With Node.js 20+ and pnpm:
 
 ```sh
-pnpm dlx github:blabbler78/spec-canvas#v0.1.1 init
+pnpm dlx github:blabbler78/spec-canvas init
 ```
 
-Or clone the repository and run `node bin/spec-canvas.mjs init --project /path/to/project`.
+This installs from the repository's current default branch. For a reproducible
+historical install, append a release tag such as `#v0.1.1`. Alternatively, clone
+the repository and run `node bin/spec-canvas.mjs init --project /path/to/project`.
 No `pnpm install` is needed: the CLI has no external dependencies.
 
 The installer asks only:
 
 ```text
-Install for Claude, Codex, or both? [both]
+Where should Spec Canvas be installed?
+  1. Both Claude Code and Codex (recommended)
+  2. Claude Code only
+  3. Codex only
+Choose 1, 2, or 3 [1]:
 Documentation directory? [.ai/specs]
 ```
 
-Press Enter twice to accept the defaults. For automation:
+Enter `1`, `2` or `3`; pressing Enter selects both. When Claude and Codex skill
+folders safely point to the same location inside the project, the installer detects
+the shared path and writes one copy. For automation:
 
 ```sh
 node bin/spec-canvas.mjs init --project /path/to/project --agent both --yes
