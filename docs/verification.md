@@ -46,3 +46,24 @@ templates; no upstream visual-explainer code or third-party image was copied.
   inventory contains only `blabbler78` (admin); auto-merge disabled.
 - Independent scoped re-review: approve for code413f973,23 tests and66 self-call
   geometry cases. Subsequent template/layout edits were browser-checked locally.
+
+## Recommended release 0.1.1
+
+Release code: `9cdd3e4eb4550be3e0665f9f4a84260796ef8e5f`.
+[Release](https://github.com/blabbler78/spec-canvas/releases/tag/v0.1.1),
+[matching CI](https://github.com/blabbler78/spec-canvas/actions/runs/36983017527).
+
+- 24/24 tests pass; CI Node20/22 both green on the exact release code.
+- Independent final entrypoint review: approve. Both installed agent CLIs created
+ actual documents via macOS `/tmp` and symlink-ancestor paths; import-only use had
+ no CLI side effects. The old guard was reproduced as a failing negative control.
+- `pnpm dlx github:blabbler78/spec-canvas#v0.1.1 init --agent both --yes` in a fresh
+ temporary project: passed. The installed Codex-layout CLI created the requested
+ Markdown scaffold and the file was asserted nonempty.
+- Anonymous public ZIP download matched the locally built package SHA256. Both
+ rich templates, references, scripts, document template, license and attribution
+ are included. Release also includes a full CLI package and checksums.
+
+0.1.1 fixes a path-alias issue found during actual release verification. Use0.1.1
+for new installations;0.1.0 is retained as release history. The reviewed release is
+immutable; later main-branch documentation updates do not change its code.

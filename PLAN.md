@@ -15,7 +15,7 @@ Mermaid dependency or automatic export/browser install is included.
 - [x] Portable skill and optional installer/renderer
 - [x] English docs and synthetic examples
 - [x] Tests, visual verification and independent review
-- [ ] Public repository, source/skill download and ownership rules
+- [x] Public repository, source/skill download and ownership rules
 
 ## Evidence
 
@@ -27,3 +27,7 @@ Independent review approved the fixes in code candidate413f973; subsequent chang
 add rich presentation assets and correct composed SVG IDs. 23 tests pass. CI for
 f55935d passes on Node20/22; remote pnpm installation from main succeeds. Release
 publication/download verification is the final step.
+
+Completed: release [v0.1.1](https://github.com/blabbler78/spec-canvas/releases/tag/v0.1.1).
+Pinned GitHub install, installed scaffold output and anonymous ZIP SHA256 verified.
+Final canonical-path review approved code9cdd3e4;24 tests and releaseCI20/22 pass.
