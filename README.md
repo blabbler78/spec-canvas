@@ -165,6 +165,8 @@ Our code and documentation are **MIT licensed**. The package has no third-party
 runtime dependencies. The design draws inspiration from Nico Bailon's original
 visual-explainer; we do not bundle its code, a fork, or its dependency tree.
 [Tools and attribution](THIRD_PARTY_NOTICES.md) documents required and optional tools.
+[Using visual-explainer and Mermaid alongside this skill](docs/optional-tools.md)
+explains how existing tools can complement the workflow without mandatory installs.
 Models, agents and browsers are separately obtained and follow their own terms.
 
 Contributions through issues and pull requests are welcome. **@blabbler78 is the

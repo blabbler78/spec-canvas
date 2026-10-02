@@ -42,6 +42,10 @@ Deliver Markdown plus self-contained HTML with a real inline SVG diagram: arrows
 legible labels, and correct direction. Use a solid white page and SVG canvas even
 under a dark OS preference. Do not substitute cards or textual edge lists for a
 diagram. Keep CSS, fonts and graphics local; no CDN or remote scripts by default.
+If an upstream visual-explainer or another renderer skill is already installed and
+the user requests it, load its actual instructions and use it for presentation
+while retaining this document's evidence boundaries. Do not silently install tools
+or claim to have used an unavailable skill.
 Use the bundled [HTML template](assets/page.html) as an optional manual starting point.
 
 **Without Node.js:** author SVG/HTML directly using agent file tools. Do not run the
