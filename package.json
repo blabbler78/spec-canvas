@@ -4,10 +4,34 @@
   "description": "Portable agent skill and optional CLI for source-grounded specs and white-background diagrams",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=20" },
-  "bin": { "spec-canvas": "bin/spec-canvas.mjs" },
-  "scripts": { "test": "node --test", "examples": "node scripts/examples.mjs" },
-  "files": ["bin", "skills", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
-  "repository": { "type": "git", "url": "https://github.com/blabbler78/spec-canvas.git" },
-  "keywords": ["agent-skills", "codex", "claude-code", "documentation", "diagrams", "svg"]
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "spec-canvas": "bin/spec-canvas.mjs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "examples": "node scripts/examples.mjs"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "docs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blabbler78/spec-canvas.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "claude-code",
+    "documentation",
+    "diagrams",
+    "svg"
+  ]
 }

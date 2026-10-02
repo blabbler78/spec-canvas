@@ -25,7 +25,7 @@ export function validate(data) {
   }
   return data;
 }
-function wrap(s, limit){const words=s.split(/\s+/);const out=[];let line='';for(const w of words){if(line&&(line+' '+w).length>limit){out.push(line);line=w;}else line+=(line?' ':'')+w;}if(line)out.push(line);return out;}
+function wrap(s, limit){const words=s.split(/\s+/).flatMap(w=>w.match(new RegExp(`.{1,${limit}}`,'gu'))??[]);const out=[];let line='';for(const w of words){if(line&&(line+' '+w).length>limit){out.push(line);line=w;}else line+=(line?' ':'')+w;}if(line)out.push(line);return out;}
 export function render(data) {
   validate(data);
   const dark=data.theme==='dark';const p=dark?{bg:'#111827',fg:'#f1f5f9',muted:'#aebed0',stroke:'#8dbbd5',surface:'#1e293b',line:'#50647b'}:{bg:'#ffffff',fg:'#173042',muted:'#526878',stroke:'#075985',surface:'#f1f7fb',line:'#b5c9d6'};
@@ -38,7 +38,7 @@ export function render(data) {
   const path=(d,dashed=false)=>`<path d="${d}" fill="none" stroke="${p.stroke}" stroke-width="2"${dashed?' stroke-dasharray="7 5"':''} marker-end="url(#arrow)"/>`;
   add(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="title desc"><title id="title">${escape(data.title)}</title><desc id="desc">${escape(data.description??data.view+' diagram')}</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="${p.stroke}"/></marker></defs><style>text{font-family:system-ui,sans-serif}</style><rect width="${w}" height="${h}" fill="${p.bg}"/>`);
   add(txt(28,42,data.title,26));add(txt(28,70,data.view.toUpperCase(),13));
-  if(sequence){const positions=new Map();data.lanes.forEach((lane,i)=>{const x=120+i*(w-240)/(data.lanes.length-1);positions.set(lane.id,x);add(rect(x-100,95,200,54));add(txt(x,128,lane.label,17,'middle'));add(`<path d="M${x} 150V${h-25}" stroke="${p.line}" stroke-dasharray="5 6"/>`);});data.messages.forEach((m,i)=>{const x1=positions.get(m.from),x2=positions.get(m.to),y=215+i*90;if(x1===x2){add(path(`M${x1} ${y}h65v30h-65`,m.return));add(label(x1+120,y-15,`${i+1}. ${m.label}`,25));}else{add(path(`M${x1} ${y}H${x2}`,m.return));add(label((x1+x2)/2,y-30,`${i+1}. ${m.label}`,Math.max(20,Math.floor(Math.abs(x2-x1)/8))));}});
+  if(sequence){const positions=new Map();data.lanes.forEach((lane,i)=>{const x=120+i*(w-240)/(data.lanes.length-1);positions.set(lane.id,x);add(rect(x-100,95,200,54));add(txt(x,128,lane.label,17,'middle'));add(`<path d="M${x} 150V${h-25}" stroke="${p.line}" stroke-dasharray="5 6"/>`);});data.messages.forEach((m,i)=>{const x1=positions.get(m.from),x2=positions.get(m.to),y=215+i*90;if(x1===x2){add(path(`M${x1} ${y}h65v30h-65`,m.return));add(edgeLabel(x1+(x1>w-260?-135:135),y-15,`${i+1}. ${m.label}`,25));}else{add(path(`M${x1} ${y}H${x2}`,m.return));add(label((x1+x2)/2,y-30,`${i+1}. ${m.label}`,Math.max(20,Math.floor(Math.abs(x2-x1)/8))));}});
   }else{
     const nodes=new Map(data.nodes.map(n=>[n.id,n]));
     for(const e of data.edges){const a=nodes.get(e.from),b=nodes.get(e.to);const ax=a.x+110,ay=a.y+35,bx=b.x+110,by=b.y+35;let d,lx,ly;
