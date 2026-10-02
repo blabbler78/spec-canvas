@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/dependency-light.json",
+  "inputSha256": "a95679b1e7a7ab940f7579f9674e2f73ffa9893717202e88e531c243f2319ddf",
+  "theme": "light",
+  "view": "dependency",
+  "artifacts": {
+    "examples/dependency-light.html": "09699a06fc35332b535fb75f04a55856c3be2268772d477083065415aef8a586",
+    "examples/dependency-light.svg": "04734caa8ee7c6d818d53159059abe07762b952311027a7f3c773b6f6b4fa1ea"
+  },
+  "runtimeVerified": false
+}

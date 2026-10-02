@@ -1,0 +1,62 @@
+{
+  "title": "From request to stored result",
+  "view": "flow",
+  "description": "Proposed flow for a fictional job service. Acceptance queues work; it does not confirm completion.",
+  "width": 1080,
+  "height": 570,
+  "nodes": [
+    {
+      "id": "request",
+      "label": "Client request",
+      "x": 30,
+      "y": 150
+    },
+    {
+      "id": "queue",
+      "label": "Validate and enqueue",
+      "x": 400,
+      "y": 150
+    },
+    {
+      "id": "worker",
+      "label": "Worker processes job",
+      "x": 800,
+      "y": 150
+    },
+    {
+      "id": "saved",
+      "label": "Store result",
+      "x": 800,
+      "y": 410
+    },
+    {
+      "id": "invalid",
+      "label": "Reject invalid input",
+      "x": 400,
+      "y": 410
+    }
+  ],
+  "edges": [
+    {
+      "from": "request",
+      "to": "queue",
+      "label": "Submit"
+    },
+    {
+      "from": "queue",
+      "to": "worker",
+      "label": "Valid input"
+    },
+    {
+      "from": "queue",
+      "to": "invalid",
+      "label": "Invalid input"
+    },
+    {
+      "from": "worker",
+      "to": "saved",
+      "label": "Success"
+    }
+  ],
+  "theme": "light"
+}

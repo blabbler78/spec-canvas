@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/sequence-dark.json",
+  "inputSha256": "f224c57f5dfb492588569633c54899014ee69d80e6118b867e7a70ad8b24899b",
+  "theme": "dark",
+  "view": "sequence",
+  "artifacts": {
+    "examples/sequence-dark.html": "e4e8ba460f1a01fa22eed00bef64178516614d485bb55a5f1a37be385bda2541",
+    "examples/sequence-dark.svg": "f1ccef3d90e670d9e87cd92e9210f755ea0ecbcc3ec5dfbebf0cd4345d8d3b01"
+  },
+  "runtimeVerified": false
+}

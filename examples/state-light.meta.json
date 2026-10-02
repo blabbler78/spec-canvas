@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/state-light.json",
+  "inputSha256": "07b260f73a71a3450f812be0ffbca66c89656aedb9ebb0851ce8a61297230ff8",
+  "theme": "light",
+  "view": "state",
+  "artifacts": {
+    "examples/state-light.html": "83b5eb372b7fc17f221901f914a271fde551bb67de0a865cb4e3ffae4a407264",
+    "examples/state-light.svg": "69a82ae165b452522de31679436512480a7af6ce882721a97125820a99e6b44e"
+  },
+  "runtimeVerified": false
+}

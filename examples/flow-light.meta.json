@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/flow-light.json",
+  "inputSha256": "67cfac13db5a83cc22a541650fd96ce5cdb17415b92fed2c0fde3eb2c30c5b2e",
+  "theme": "light",
+  "view": "flow",
+  "artifacts": {
+    "examples/flow-light.html": "ff4d5168eec305915be01c6b0cf1c8f596f55974d82a31859d4d3bde33136022",
+    "examples/flow-light.svg": "35a539c52bb9c858fa17d963743b40008b5fffd2cc7e06670872ee068d52cd5d"
+  },
+  "runtimeVerified": false
+}

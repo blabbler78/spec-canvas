@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="570" viewBox="0 0 1080 570" role="img" aria-labelledby="title desc"><title id="title">From request to stored result</title><desc id="desc">Proposed flow for a fictional job service. Acceptance queues work; it does not confirm completion.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#075985"/></marker></defs><style>text{font-family:system-ui,sans-serif}</style><rect width="1080" height="570" fill="#ffffff"/>
+<text x="28" y="42" fill="#173042" font-size="26" text-anchor="start">From request to stored result</text>
+<text x="28" y="70" fill="#173042" font-size="13" text-anchor="start">FLOW</text>
+<path d="M250 185L400 185" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="293.6" y="156" width="62.800000000000004" height="21" fill="#ffffff"/><text x="325" y="172" fill="#173042" font-size="16" text-anchor="middle">Submit</text>
+<path d="M620 185L800 185" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="656.6" y="156" width="106.80000000000001" height="21" fill="#ffffff"/><text x="710" y="172" fill="#173042" font-size="16" text-anchor="middle">Valid input</text>
+<path d="M510 220L510 410" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="522.8" y="299" width="124.4" height="21" fill="#ffffff"/><text x="585" y="315" fill="#173042" font-size="16" text-anchor="middle">Invalid input</text>
+<path d="M910 220L910 410" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="949.2" y="299" width="71.60000000000001" height="21" fill="#ffffff"/><text x="985" y="315" fill="#173042" font-size="16" text-anchor="middle">Success</text>
+<rect x="30" y="150" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="140" y="187" fill="#173042" font-size="16" text-anchor="middle">Client request</text>
+<rect x="400" y="150" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="510" y="187" fill="#173042" font-size="16" text-anchor="middle">Validate and enqueue</text>
+<rect x="800" y="150" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="910" y="187" fill="#173042" font-size="16" text-anchor="middle">Worker processes job</text>
+<rect x="800" y="410" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="910" y="447" fill="#173042" font-size="16" text-anchor="middle">Store result</text>
+<rect x="400" y="410" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="510" y="447" fill="#173042" font-size="16" text-anchor="middle">Reject invalid input</text>
+</svg>

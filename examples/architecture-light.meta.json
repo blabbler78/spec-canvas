@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/architecture-light.json",
+  "inputSha256": "da3068bd0b65e3d5a1247f838c6a35659c87593c148fe05fe869afba538e5a3d",
+  "theme": "light",
+  "view": "architecture",
+  "artifacts": {
+    "examples/architecture-light.html": "106ce14c34b255c31de5994e86d5161e35b9fa0b40e9ede4538d705f4a8c0ca1",
+    "examples/architecture-light.svg": "9f2c3cf4057efb179a110d72263bf42635188a5662d56f496a26dcbc10f1a663"
+  },
+  "runtimeVerified": false
+}

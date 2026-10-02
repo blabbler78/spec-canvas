@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/sequence-light.json",
+  "inputSha256": "96ce383923d2faf702afaa929cb80a03a7d7fa098a63f3572ba674eb7de4b3c9",
+  "theme": "light",
+  "view": "sequence",
+  "artifacts": {
+    "examples/sequence-light.html": "3d68197873e1bc6481134eeb08f020e10e15329e9b076197f9569a3149907025",
+    "examples/sequence-light.svg": "805cf9909fcee58a2a65ae2667a359c04dcad887f0db3104b0638ea1a74a0727"
+  },
+  "runtimeVerified": false
+}

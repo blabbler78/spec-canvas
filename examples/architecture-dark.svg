@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="570" viewBox="0 0 1080 570" role="img" aria-labelledby="title desc"><title id="title">Job service component boundaries</title><desc id="desc">Proposed components, independent of implementation language or framework.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#8dbbd5"/></marker></defs><style>text{font-family:system-ui,sans-serif}</style><rect width="1080" height="570" fill="#111827"/>
+<text x="28" y="42" fill="#f1f5f9" font-size="26" text-anchor="start">Job service component boundaries</text>
+<text x="28" y="70" fill="#f1f5f9" font-size="13" text-anchor="start">ARCHITECTURE</text>
+<path d="M250 185L400 185" fill="none" stroke="#8dbbd5" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="302.4" y="156" width="45.2" height="21" fill="#111827"/><text x="325" y="172" fill="#f1f5f9" font-size="16" text-anchor="middle">HTTP</text>
+<path d="M620 185L800 185" fill="none" stroke="#8dbbd5" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="674.2" y="156" width="71.60000000000001" height="21" fill="#111827"/><text x="710" y="172" fill="#f1f5f9" font-size="16" text-anchor="middle">Publish</text>
+<path d="M910 220L910 410" fill="none" stroke="#8dbbd5" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="949.2" y="299" width="71.60000000000001" height="21" fill="#111827"/><text x="985" y="315" fill="#f1f5f9" font-size="16" text-anchor="middle">Consume</text>
+<path d="M510 220L510 410" fill="none" stroke="#8dbbd5" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="536" y="299" width="98" height="21" fill="#111827"/><text x="585" y="315" fill="#f1f5f9" font-size="16" text-anchor="middle">Job status</text>
+<path d="M800 445L620 445" fill="none" stroke="#8dbbd5" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="678.6" y="416" width="62.800000000000004" height="21" fill="#111827"/><text x="710" y="432" fill="#f1f5f9" font-size="16" text-anchor="middle">Result</text>
+<rect x="30" y="150" width="220" height="70" rx="6" fill="#1e293b" stroke="#50647b"/>
+<text x="140" y="187" fill="#f1f5f9" font-size="16" text-anchor="middle">Client</text>
+<rect x="400" y="150" width="220" height="70" rx="6" fill="#1e293b" stroke="#50647b"/>
+<text x="510" y="187" fill="#f1f5f9" font-size="16" text-anchor="middle">API service</text>
+<rect x="800" y="150" width="220" height="70" rx="6" fill="#1e293b" stroke="#50647b"/>
+<text x="910" y="187" fill="#f1f5f9" font-size="16" text-anchor="middle">Durable work queue</text>
+<rect x="400" y="410" width="220" height="70" rx="6" fill="#1e293b" stroke="#50647b"/>
+<text x="510" y="447" fill="#f1f5f9" font-size="16" text-anchor="middle">Job store</text>
+<rect x="800" y="410" width="220" height="70" rx="6" fill="#1e293b" stroke="#50647b"/>
+<text x="910" y="447" fill="#f1f5f9" font-size="16" text-anchor="middle">Worker service</text>
+</svg>

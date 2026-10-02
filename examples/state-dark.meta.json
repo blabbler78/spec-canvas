@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/state-dark.json",
+  "inputSha256": "6668df52dc13df4a4721a6660fc9a29d0713dae146facd34ff0eaa879ec235f8",
+  "theme": "dark",
+  "view": "state",
+  "artifacts": {
+    "examples/state-dark.html": "c37ad38e86268d6eef426701f103f5b3991df419873e4d7898ee4d16696ee3be",
+    "examples/state-dark.svg": "f3c3cd0aa06bc96e9f34989ebe741238dcbde4273305d9e132a28b63c23f7497"
+  },
+  "runtimeVerified": false
+}

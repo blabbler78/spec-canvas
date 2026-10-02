@@ -1,0 +1,56 @@
+{
+  "title": "The lifecycle of one job",
+  "view": "state",
+  "description": "Proposed persisted job states. A safe retry returns a failed job to queued; real implementations need idempotency.",
+  "width": 1080,
+  "height": 570,
+  "nodes": [
+    {
+      "id": "queued",
+      "label": "QUEUED",
+      "x": 70,
+      "y": 160
+    },
+    {
+      "id": "running",
+      "label": "RUNNING",
+      "x": 770,
+      "y": 160
+    },
+    {
+      "id": "done",
+      "label": "COMPLETED",
+      "x": 770,
+      "y": 420
+    },
+    {
+      "id": "failed",
+      "label": "FAILED",
+      "x": 70,
+      "y": 420
+    }
+  ],
+  "edges": [
+    {
+      "from": "queued",
+      "to": "running",
+      "label": "Worker claim"
+    },
+    {
+      "from": "running",
+      "to": "done",
+      "label": "Result saved"
+    },
+    {
+      "from": "running",
+      "to": "failed",
+      "label": "Processing error"
+    },
+    {
+      "from": "failed",
+      "to": "queued",
+      "label": "Safe retry"
+    }
+  ],
+  "theme": "dark"
+}

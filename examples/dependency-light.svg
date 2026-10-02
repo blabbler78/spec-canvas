@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="570" viewBox="0 0 1080 570" role="img" aria-labelledby="title desc"><title id="title">Prerequisites before accepting work</title><desc id="desc">Arrow direction: prerequisite enables dependent capability. A proposal, not evidence of a deployed system.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#075985"/></marker></defs><style>text{font-family:system-ui,sans-serif}</style><rect width="1080" height="570" fill="#ffffff"/>
+<text x="28" y="42" fill="#173042" font-size="26" text-anchor="start">Prerequisites before accepting work</text>
+<text x="28" y="70" fill="#173042" font-size="13" text-anchor="start">DEPENDENCY</text>
+<path d="M880 220L880 410" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="919.2" y="299" width="71.60000000000001" height="21" fill="#ffffff"/><text x="955" y="315" fill="#173042" font-size="16" text-anchor="middle">Enables</text>
+<path d="M170 220L170 410" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="209.2" y="299" width="71.60000000000001" height="21" fill="#ffffff"/><text x="245" y="315" fill="#173042" font-size="16" text-anchor="middle">Enables</text>
+<path d="M770 445L280 445" fill="none" stroke="#075985" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="489.2" y="416" width="71.60000000000001" height="21" fill="#ffffff"/><text x="525" y="432" fill="#173042" font-size="16" text-anchor="middle">Enables</text>
+<rect x="60" y="150" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="170" y="187" fill="#173042" font-size="16" text-anchor="middle">Durable storage</text>
+<rect x="770" y="150" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="880" y="187" fill="#173042" font-size="16" text-anchor="middle">Queue available</text>
+<rect x="770" y="410" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="880" y="447" fill="#173042" font-size="16" text-anchor="middle">Worker admission</text>
+<rect x="60" y="410" width="220" height="70" rx="6" fill="#f1f7fb" stroke="#b5c9d6"/>
+<text x="170" y="447" fill="#173042" font-size="16" text-anchor="middle">Accept new jobs</text>
+</svg>

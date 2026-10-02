@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "renderer": "spec-canvas 0.1.0",
+  "input": "examples/flow-dark.json",
+  "inputSha256": "ac958ed8ddffa14adbc6b7b033905ae659fa4d7554fb51ddcc35f9cae4578c9b",
+  "theme": "dark",
+  "view": "flow",
+  "artifacts": {
+    "examples/flow-dark.html": "cf0ab096b36ffce98a3e1c158cc69b10932df7860d4ef1ed0327900f18084531",
+    "examples/flow-dark.svg": "2034600c5a993ee2b499034c305fecbf0c41e2e8e2a6e7715481dd8afad98545"
+  },
+  "runtimeVerified": false
+}

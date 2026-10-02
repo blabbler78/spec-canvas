@@ -1,0 +1,51 @@
+{
+  "title": "Prerequisites before accepting work",
+  "view": "dependency",
+  "description": "Arrow direction: prerequisite enables dependent capability. A proposal, not evidence of a deployed system.",
+  "width": 1080,
+  "height": 570,
+  "nodes": [
+    {
+      "id": "store",
+      "label": "Durable storage",
+      "x": 60,
+      "y": 150
+    },
+    {
+      "id": "queue",
+      "label": "Queue available",
+      "x": 770,
+      "y": 150
+    },
+    {
+      "id": "workers",
+      "label": "Worker admission",
+      "x": 770,
+      "y": 410
+    },
+    {
+      "id": "accept",
+      "label": "Accept new jobs",
+      "x": 60,
+      "y": 410
+    }
+  ],
+  "edges": [
+    {
+      "from": "queue",
+      "to": "workers",
+      "label": "Enables"
+    },
+    {
+      "from": "store",
+      "to": "accept",
+      "label": "Enables"
+    },
+    {
+      "from": "workers",
+      "to": "accept",
+      "label": "Enables"
+    }
+  ],
+  "theme": "light"
+}

@@ -1,0 +1,74 @@
+{
+  "title": "Acknowledgement is not completion",
+  "view": "sequence",
+  "description": "Proposed interaction. The response returns before the worker stores a result; the client later reads status.",
+  "lanes": [
+    {
+      "id": "client",
+      "label": "Client"
+    },
+    {
+      "id": "api",
+      "label": "API"
+    },
+    {
+      "id": "worker",
+      "label": "Worker / queue"
+    },
+    {
+      "id": "db",
+      "label": "Job store"
+    }
+  ],
+  "messages": [
+    {
+      "from": "client",
+      "to": "api",
+      "label": "Submit job"
+    },
+    {
+      "from": "api",
+      "to": "db",
+      "label": "Persist queued job"
+    },
+    {
+      "from": "db",
+      "to": "api",
+      "label": "Job identifier",
+      "return": true
+    },
+    {
+      "from": "api",
+      "to": "client",
+      "label": "202 Accepted + job ID",
+      "return": true
+    },
+    {
+      "from": "api",
+      "to": "worker",
+      "label": "Queued work becomes available"
+    },
+    {
+      "from": "worker",
+      "to": "db",
+      "label": "Save completed result"
+    },
+    {
+      "from": "client",
+      "to": "api",
+      "label": "Read status"
+    },
+    {
+      "from": "api",
+      "to": "db",
+      "label": "Load job"
+    },
+    {
+      "from": "api",
+      "to": "client",
+      "label": "Completed + result",
+      "return": true
+    }
+  ],
+  "theme": "light"
+}

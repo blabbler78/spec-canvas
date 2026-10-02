@@ -1,0 +1,67 @@
+{
+  "title": "Job service component boundaries",
+  "view": "architecture",
+  "description": "Proposed components, independent of implementation language or framework.",
+  "width": 1080,
+  "height": 570,
+  "nodes": [
+    {
+      "id": "client",
+      "label": "Client",
+      "x": 30,
+      "y": 150
+    },
+    {
+      "id": "api",
+      "label": "API service",
+      "x": 400,
+      "y": 150
+    },
+    {
+      "id": "queue",
+      "label": "Durable work queue",
+      "x": 800,
+      "y": 150
+    },
+    {
+      "id": "store",
+      "label": "Job store",
+      "x": 400,
+      "y": 410
+    },
+    {
+      "id": "worker",
+      "label": "Worker service",
+      "x": 800,
+      "y": 410
+    }
+  ],
+  "edges": [
+    {
+      "from": "client",
+      "to": "api",
+      "label": "HTTP"
+    },
+    {
+      "from": "api",
+      "to": "queue",
+      "label": "Publish"
+    },
+    {
+      "from": "queue",
+      "to": "worker",
+      "label": "Consume"
+    },
+    {
+      "from": "api",
+      "to": "store",
+      "label": "Job status"
+    },
+    {
+      "from": "worker",
+      "to": "store",
+      "label": "Result"
+    }
+  ],
+  "theme": "dark"
+}
