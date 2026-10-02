@@ -1,6 +1,6 @@
 ---
 name: spec-canvas
-description: Write source-grounded current-system documentation or proposed specifications with readable flow, sequence, state, architecture, and dependency diagrams. Use when asked to document code, write a spec, or visualize a technical workflow.
+description: Write source-grounded current-system documentation or proposed specifications with readable flow, sequence, state, architecture, and dependency diagrams. Use when asked to document code, write a spec, or visualize a technical workflow; diagrams are optional and skipped for purely visual or layout changes.
 ---
 
 # Spec Canvas
@@ -38,6 +38,13 @@ Pick the question first: flow for decisions, sequence for calls over time, state
 for one entity's lifecycle, architecture for component boundaries, dependency for
 prerequisites. A table or narrative is preferable when a graph adds no information.
 
+A diagram is optional. Skip it, and say so in one sentence, for a purely visual or
+layout change — styling, sizing, resizing, placement or copy — whose impact a mockup
+or screenshot already shows; an architecture diagram is not a UI mockup. Draw one
+only if the change also alters a boundary, data flow, state lifecycle or staged
+rollout. Never escalate on your own: when a calling workflow asks you to assess
+usefulness, a skip is a valid result; render anyway only on an explicit request.
+
 For a rich visual explanation rather than a simple diagram, read
 [presentation.md](references/presentation.md) and choose a complete page template.
 Use the overview/cards template for a compact system brief, editorial for a long
@@ -45,9 +52,9 @@ reading document, or blueprint for an explicitly dark technical document. Full
 presentation is agent-authored, does not require Node.js, and supports richer
 layouts than the CLI.
 
-Deliver Markdown plus self-contained HTML with a real inline SVG diagram: arrows,
-legible labels, and correct direction. Use a solid white page and SVG canvas even
-under a dark OS preference. Do not substitute cards or textual edge lists for a
+When a diagram is drawn, deliver Markdown plus self-contained HTML with a real
+inline SVG diagram: arrows, legible labels, and correct direction. Use a solid
+white page and SVG canvas even under a dark OS preference. Do not substitute cards or textual edge lists for a
 diagram. Keep CSS, fonts and graphics local; no CDN or remote scripts by default.
 If an upstream visual-explainer or another renderer skill is already installed and
 the user requests it, load its actual instructions and use it for presentation
