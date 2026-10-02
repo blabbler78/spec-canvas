@@ -34,3 +34,15 @@ Rich editorial/blueprint documents: three inline diagrams each, no remote resour
 no overflow at 1440px; blueprint also checked at 390px with all navigation targets
 valid. Both screenshots visually inspected. They are original self-contained HTML
 templates; no upstream visual-explainer code or third-party image was copied.
+
+## Remote evidence
+
+- GitHub CI for `f55935de6e6efc38308c4d82ea193b79d2a64dd9`: Node20 and22 green,
+  [run36982368067](https://github.com/blabbler78/spec-canvas/actions/runs/36982368067).
+- `pnpm dlx github:blabbler78/spec-canvas#main init --agent both --yes` against
+  a temporary project: passed, both skill folders and configuration created.
+- Ruleset24353256: active; restrict main updates, block deletion/force pushes, require
+  code-owner review. Admin bypass remains the owner's maintenance control. Collaborator
+  inventory contains only `blabbler78` (admin); auto-merge disabled.
+- Independent scoped re-review: approve for code413f973,23 tests and66 self-call
+  geometry cases. Subsequent template/layout edits were browser-checked locally.

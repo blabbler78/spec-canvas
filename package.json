@@ -20,7 +20,8 @@
     "README.md",
     "LICENSE",
     "THIRD_PARTY_NOTICES.md",
-    "docs"
+    "docs",
+    "examples"
   ],
   "repository": {
     "type": "git",
