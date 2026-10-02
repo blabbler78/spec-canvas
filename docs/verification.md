@@ -3,7 +3,7 @@
 Checked locally on macOS with Node.js 22 on 2026-10-02. This is tooling evidence,
 not a claim about the fictional Job Service in the examples.
 
-- `node --test`: 19 tests passed. Covers both-agent installation, installed CLI
+- `node --test`: 23 tests passed. Covers both-agent installation, installed CLI
   portability, existing-file protection, path traversal/symlink refusal, custom
   templates, supported views, escaped labels and freshness detection.
 - Skill frontmatter validator: passed.
@@ -22,3 +22,15 @@ Release packaging, independent review, remote installation and CI results are
 recorded in the release notes after those checks complete. Windows runtime and an
 end-to-end session in each third-party agent are not claimed as tested. The manual
 skill's compatibility uses their documented skill-folder formats.
+
+## Review fixes and full presentation examples
+
+Independent review found companion output symlink writes, last-lane self-call label
+clipping and literal-title substitution errors. All three were corrected with four
+additional regression tests; 23/23 tests pass. Companion paths are checked before any
+write, self-call labels remain inside the canvas, and template values are literal.
+
+Rich editorial/blueprint documents: three inline diagrams each, no remote resources,
+no overflow at 1440px; blueprint also checked at 390px with all navigation targets
+valid. Both screenshots visually inspected. They are original self-contained HTML
+templates; no upstream visual-explainer code or third-party image was copied.

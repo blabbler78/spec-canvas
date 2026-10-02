@@ -44,3 +44,11 @@ For HTML styling, the manual `assets/page.html` is a starting point that your ag
 can adapt. CLI rendering intentionally accepts structured diagram data, not custom
 JavaScript, CSS plugins or executable HTML templates. Rich custom page design belongs
 to manual authoring; inspect the result and keep evidence labels explicit.
+
+## Rich HTML templates
+
+`assets/editorial-page.html` and `assets/blueprint-page.html` supply complete
+agent-authored page shells. Copy one to your own project, customize it, and ask the
+agent to use it for presentation. The default is editorial white; blueprint dark
+is explicit. These templates are used by the agent, not the deterministic CLI.
+Synthetic diagrams are placeholders that must be replaced with project evidence.

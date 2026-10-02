@@ -38,6 +38,11 @@ Pick the question first: flow for decisions, sequence for calls over time, state
 for one entity's lifecycle, architecture for component boundaries, dependency for
 prerequisites. A table or narrative is preferable when a graph adds no information.
 
+For a rich visual explanation rather than a simple diagram, read
+[presentation.md](references/presentation.md) and choose a complete page template.
+Full presentation is agent-authored, does not require Node.js, and supports richer
+layouts than the CLI.
+
 Deliver Markdown plus self-contained HTML with a real inline SVG diagram: arrows,
 legible labels, and correct direction. Use a solid white page and SVG canvas even
 under a dark OS preference. Do not substitute cards or textual edge lists for a

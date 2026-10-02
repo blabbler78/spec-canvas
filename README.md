@@ -111,6 +111,23 @@ Open a downloaded HTML file locally to explore the full-size diagram.
 GitHub displays Markdown and screenshots; it shows HTML as source. Download the
 repository to open the HTML examples in your browser.
 
+## Rich presentation mode
+
+Beyond the simple CLI diagrams, your agent can create a complete visual explanation
+using the bundled editorial or blueprint page templates. This manual path needs
+no Node.js. Typography, contents navigation, evidence panels, diagrams and prose
+form one document; custom project templates can replace the defaults.
+
+| Editorial — white | Blueprint — dark |
+| --- | --- |
+| ![Editorial document](examples/screenshots/editorial-document.png) | ![Blueprint document](examples/screenshots/blueprint-document.png) |
+
+[Editorial HTML](examples/editorial-document.html) · [Blueprint HTML](examples/blueprint-document.html)
+
+These are original templates, not a bundled copy of visual-explainer. That separate
+skill provides broader presentation guidance and optional integrations; see the
+[optional tools guide](docs/optional-tools.md).
+
 ## A complete document
 
 The included fictional Job Service specification combines narrative, architecture,
